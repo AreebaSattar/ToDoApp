@@ -11,7 +11,7 @@ A simple To-Do List Web App that allows users to add, view, and delete tasks wit
 ## Getting Started
 
 1. Clone this repository to your local machine.
-2. Open the `index.html` file in your web browser.
+2. Open the `todoApp.html` file in your web browser.
 3. Use the input fields to add new tasks.
 4. Click the "Save" button to add the tasks to the list.
 5. Click the "X" button next to a task to delete it.
