@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+    
+</head>
+<body>
+    <header>
+        <h1>To-Do List Web App</h1>
+    </header>
+    <div class="containB">
+    <div id="container">
+        <form action="">
+            <input id = 'title' class="title" type="text" placeholder="Title">
+            <textarea id = 'descr' rows="10" cols="45" placeholder="Description"></textarea><br>
+            <button type="button" onclick="addTodo()">Save</button>
+        </form>
+    </div>
+    <table id="todo-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="todo-list"></tbody>
+    </table>
+    
+        
+</div>
+<script>
+    function addTodo()
+    {
+        var titleI=document.getElementById("title");
+        var descI = document.getElementById("descr");
+        var title=titleI.value;
+        var descID = descI.value;
+
+        if (title !== "" && descID !== "")
+        {
+            var rowT=document.createElement("tr");
+            var CellTitle = document.createElement("td");
+            var CellDesc = document.createElement("td");
+            var delCell=document.createElement("td");
+
+
+            var titleTodo=document.createElement("p");
+            var descTodo=document.createElement("p");
+            var deleteButton = document.createElement("button");
+
+
+            titleTodo.textContent =title;
+            descTodo.textContent = descID;
+            deleteButton.textContent = "X";
+            
+            
+            deleteButton.classList.add("delete-button");
+            deleteButton.onclick = function () {
+                rowT.remove();
+            };
+
+            CellTitle.appendChild(titleTodo);
+            CellDesc.appendChild(descTodo);
+            delCell.appendChild(deleteButton);
+
+            rowT.appendChild(CellTitle);
+            rowT.appendChild(CellDesc);
+            rowT.appendChild(delCell);
+            
+            var todoL=document.getElementById("todo-list");
+            todoL.appendChild(rowT);
+
+            titleI.value = "";
+            descI.value="";
+
+        }
+    }
+</script>
+</body>
+</html>
